@@ -1,16 +1,41 @@
-# qcyo
+# 🌱 Quantum Crop Yield Optimizer (Q-CYO) – Flutter App
 
-A new Flutter project.
+The **Quantum Crop Yield Optimizer (Q-CYO)** Flutter application is the frontend interface for farmers.  
+It allows users to input farm data and receive AI-powered recommendations from a Python backend that uses machine learning and optimization techniques.
 
-## Getting Started
+The application is cross-platform and runs on **Android, Web, Windows, and iOS** (iOS requires macOS).
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## 🚀 Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Simple farmer-friendly interface
+- Crop yield prediction
+- Fertilizer recommendation
+- Weather risk assessment
+- Real-time communication with Python backend
+- Cross-platform support
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## 🧠 System Architecture
+
+```text
+Flutter App (UI)
+      ↓ HTTP (JSON)
+Python Flask API (ML + Optimization)
+      ↓
+Predictions & Recommendations
+Q_CYO_FLUTTER_APP/
+│
+├── lib/
+│   ├── main.dart                 # Application entry point
+│   │
+│   ├── screens/
+│   │   └── home_screen.dart      # Farmer input form and results display
+│   │
+│   └── services/
+│       └── api_service.dart      # HTTP API communication
+│
+├── pubspec.yaml                  # Flutter dependencies
+└── README.md                     # Project documentation
