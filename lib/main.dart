@@ -9,6 +9,6 @@ class QCYApp extends StatelessWidget {
   const QCYApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: const HomeScreen());
+    return MaterialApp(home: HomeScreen());
   }
 }
