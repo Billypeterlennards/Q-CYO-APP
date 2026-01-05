@@ -1,25 +1,3 @@
-Flutter App (UI)
-      ↓ HTTP (JSON)
-Python Flask API (ML + Optimization)
-      ↓
-Predictions & Recommendations
-Q_CYO_FLUTTER_APP/
-│
-├── lib/
-│   ├── main.dart                 # Application entry point
-│   │
-│   ├── screens/
-│   │   └── home_screen.dart      # Farmer input form and results display
-│   │
-│   └── services/
-│       └── api_service.dart      # HTTP API communication
-│
-├── pubspec.yaml                  # Flutter dependencies
-└── README.md                     # Project documentation
-Below is a **clean, professional, copy-paste ready README.md** **specifically for the Flutter Q-CYO App only** (no backend content mixed in).
-It uses **clear tables**, good spacing, and is suitable for **Windows, Android, Web, and iOS**.
-
----
 
 # 🌱 Q-CYO Flutter App
 
@@ -211,6 +189,7 @@ static const String baseUrl = "https://your-backend-url";
 
 **Quantum Crop Yield Optimizer (Q-CYO)**
 *AI-Driven Agriculture for Smarter Farming*
+
 
 
 
