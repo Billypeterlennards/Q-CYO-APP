@@ -1,9 +1,10 @@
-// This is a basic Flutter widget test.
+// BEFORE: this was the default Flutter template's "Counter increments"
+// test, left over from `flutter create`. It looks for a '+' icon and a
+// counter that don't exist anywhere in this app - running it would fail
+// immediately. It was never adapted to actually test Q-CYO.
 //
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
+// AFTER: a real smoke test that verifies the actual home screen renders
+// its key elements without crashing.
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -11,20 +12,27 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:qcyo/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
+  testWidgets('App launches and shows the farm details form', (tester) async {
     await tester.pumpWidget(const QCYApp());
-
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
     await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    expect(find.text('Q-CYO: Quantum Crop Yield Optimizer'), findsOneWidget);
+    expect(find.text('Farm Details'), findsOneWidget);
+    expect(find.text('Get Quantum Recommendations'), findsOneWidget);
+
+    // Default form values should be pre-filled.
+    expect(find.widgetWithText(TextFormField, ''), findsNothing);
+  });
+
+  testWidgets('Advanced options toggle reveals the budget field', (tester) async {
+    await tester.pumpWidget(const QCYApp());
+    await tester.pump();
+
+    expect(find.text('Budget (USD) - Optional'), findsNothing);
+
+    await tester.tap(find.text('Advanced Options'));
+    await tester.pump();
+
+    expect(find.text('Budget (USD) - Optional'), findsOneWidget);
   });
 }
