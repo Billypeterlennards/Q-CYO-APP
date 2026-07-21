@@ -55,9 +55,17 @@ class _FarmFormState extends State<FarmForm> {
   late String _cropType;
   bool _showAdvancedOptions = false;
 
-  static const soilTypes = ['sandy', 'clay', 'loamy', 'loam', 'silt', 'silty'];
+  // AUDIT FIX: these must exactly match api/app.py's InputValidator
+  // valid_soils/valid_crops lists on the backend - that validator is the
+  // real, authoritative source of truth for what's accepted. Before this
+  // fix, this list included 'loamy'/'silt'/'cotton' (all REJECTED by the
+  // backend validator) and omitted 'peaty'/'chalky' (both ACCEPTED by
+  // it) - meaning a user selecting several of these dropdown options
+  // would get a live validation error from the API. Verified against the
+  // real backend code, not assumed.
+  static const soilTypes = ['sandy', 'loam', 'clay', 'silty', 'peaty', 'chalky'];
   static const cropTypes = [
-    'maize', 'wheat', 'rice', 'barley', 'sorghum', 'soybean', 'cotton',
+    'maize', 'wheat', 'rice', 'barley', 'sorghum', 'soybean',
   ];
 
   @override
